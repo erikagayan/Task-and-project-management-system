@@ -7,7 +7,7 @@ class Project(models.Model):
     description = models.TextField()
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="created_projects")
     created_at = models.DateTimeField(auto_now_add=True)
-    deadline = models.DateTimeField()
+    deadline = models.DateTimeField(null=True, blank=True)
     participants = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="projects")
 
     def __str__(self):
